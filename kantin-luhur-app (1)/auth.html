@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id" data-page="auth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Sistem Kantin Sekolah dengan Tema Warisan Jawa - Modern Javanese Heritage School Canteen System"
+    />
+    <title>Login - Kantin Luhur</title>
+    <link rel="icon" href="/icon-light-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="font-sans antialiased">
+    <div class="min-h-screen flex batik-pattern">
+      <header class="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
+        <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
+          <div class="flex h-16 items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+              <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                <span class="text-primary-foreground font-serif font-bold text-lg">K</span>
+              </div>
+              <div>
+                <h1 class="font-serif text-xl font-bold text-primary">Kantin Luhur</h1>
+                <p class="text-xs text-muted-foreground -mt-1">Warisan Rasa Jawi</p>
+              </div>
+            </a>
+
+            <div class="hidden md:flex md:items-center md:gap-6">
+              <a href="index.html" class="text-sm font-medium transition-colors text-foreground hover:text-accent">Home</a>
+              <a href="menu.html" class="text-sm font-medium transition-colors text-foreground hover:text-accent">Menu</a>
+              <a href="auth.html" class="text-sm font-medium transition-colors text-accent">Login</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div class="flex-1 flex flex-col lg:flex-row items-center justify-center w-full pt-16">
+        <div class="hidden lg:flex lg:w-1/2 bg-primary items-center justify-center p-12 relative overflow-hidden">
+          <div class="absolute inset-0 kawung-pattern opacity-10"></div>
+          <div class="relative z-10 text-center">
+            <div class="w-24 h-24 rounded-full bg-accent flex items-center justify-center mx-auto mb-8">
+              <span class="text-accent-foreground font-serif font-bold text-4xl">K</span>
+            </div>
+            <h1 class="font-serif text-4xl font-bold text-primary-foreground mb-4">Kantin Luhur</h1>
+            <p class="text-primary-foreground/80 text-lg max-w-md mx-auto">
+              Sugeng Rawuh. Selamat datang di sistem pemesanan Kantin Luhur, warisan cita rasa Nusantara di lingkungan sekolah.
+            </p>
+            <div class="mt-12 bg-primary-foreground/10 rounded-xl p-6 backdrop-blur-sm text-left text-sm text-primary-foreground/80">
+              <h3 class="font-serif font-semibold text-primary-foreground mb-4">Anggota VIP (Diskon 20%)</h3>
+              <div class="space-y-2">
+                <div class="flex justify-between"><span>Ustadz Ahmad</span><span class="opacity-60">Guru Agama</span></div>
+                <div class="flex justify-between"><span>Rivan</span><span class="opacity-60">Siswa Kelas 12</span></div>
+                <div class="flex justify-between"><span>Hasan</span><span class="opacity-60">Siswa Kelas 11</span></div>
+                <div class="flex justify-between"><span>Fauzi</span><span class="opacity-60">Staff TU</span></div>
+                <div class="flex justify-between"><span>Ilham</span><span class="opacity-60">Siswa Kelas 10</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex-1 flex items-center justify-center p-8">
+          <div class="w-full max-w-md">
+            <a href="index.html" class="inline-flex items-center text-muted-foreground hover:text-foreground mb-8">
+              <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              Kembali ke Beranda
+            </a>
+
+            <div class="bg-card rounded-xl p-8 shadow-lg batik-border">
+              <div class="text-center mb-8">
+                <h2 class="font-serif text-2xl font-bold text-foreground mb-2" id="auth-title">Masuk ke Akun</h2>
+                <p class="text-muted-foreground text-sm" id="auth-description">
+                  Sugeng Rawuh. Masuk untuk memesan boga Jawi.
+                </p>
+              </div>
+
+              <div class="flex gap-2 mb-6">
+                <button type="button" id="login-tab" class="flex-1 py-2 text-sm font-medium rounded-lg transition-colors bg-primary text-primary-foreground">Masuk</button>
+                <button type="button" id="register-tab" class="flex-1 py-2 text-sm font-medium rounded-lg transition-colors bg-secondary text-secondary-foreground hover:bg-secondary/80">Daftar</button>
+              </div>
+
+              <form id="auth-form" class="space-y-4">
+                <div id="name-field" class="hidden">
+                  <label for="name" class="block text-sm font-medium text-foreground">Nama Lengkap</label>
+                  <div class="relative mt-1">
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <input id="name" type="text" placeholder="Nama lengkap Anda" class="w-full rounded-xl border border-border bg-card px-10 py-3 text-sm" />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="email" class="block text-sm font-medium text-foreground">Email</label>
+                  <div class="relative mt-1">
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 8l-10 6-10-6"/></svg>
+                    <input id="email" type="email" placeholder="nama@sekolah.id" class="w-full rounded-xl border border-border bg-card px-10 py-3 text-sm" required />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="password" class="block text-sm font-medium text-foreground">Password</label>
+                  <div class="relative mt-1">
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 17a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v5a2 2 0 0 0 2 2z"/><path d="M6 10V8a6 6 0 1 1 12 0v2"/></svg>
+                    <input id="password" type="password" placeholder="••••••••" class="w-full rounded-xl border border-border bg-card px-10 py-3 text-sm" required />
+                    <button type="button" id="toggle-password" class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">Show</button>
+                  </div>
+                </div>
+
+                <p id="error-message" class="hidden text-sm text-destructive"></p>
+
+                <button type="submit" id="auth-submit" class="w-full rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-all">
+                  Login
+                </button>
+              </form>
+
+              <div class="mt-6 p-4 bg-secondary rounded-lg text-sm text-muted-foreground text-center">
+                <strong>Demo:</strong> Gunakan password demo123 untuk login.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

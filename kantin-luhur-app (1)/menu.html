@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id" data-page="menu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Sistem Kantin Sekolah dengan Tema Warisan Jawa - Modern Javanese Heritage School Canteen System"
+    />
+    <title>Menu - Kantin Luhur</title>
+    <link rel="icon" href="/icon-light-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="font-sans antialiased">
+    <div class="min-h-screen flex flex-col">
+      <header class="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border">
+        <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
+          <div class="flex h-16 items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+              <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                <span class="text-primary-foreground font-serif font-bold text-lg">K</span>
+              </div>
+              <div>
+                <h1 class="font-serif text-xl font-bold text-primary">Kantin Luhur</h1>
+                <p class="text-xs text-muted-foreground -mt-1">Warisan Rasa Jawi</p>
+              </div>
+            </a>
+
+            <div class="hidden md:flex md:items-center md:gap-6">
+              <a href="index.html" class="text-sm font-medium transition-colors text-foreground hover:text-accent">Home</a>
+              <a href="menu.html" class="text-sm font-medium transition-colors text-accent">Menu</a>
+              <a href="auth.html" class="text-sm font-medium transition-colors text-foreground hover:text-accent">Login</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <a href="checkout.html" class="relative">
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all hover:bg-accent hover:text-accent-foreground size-9 p-2"
+                  aria-label="Keranjang"
+                >
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 6h15l-1.5 9h-13z"></path>
+                    <circle cx="9" cy="20" r="1"></circle>
+                    <circle cx="18" cy="20" r="1"></circle>
+                    <path d="M6 6L5 2H2"></path>
+                  </svg>
+                  <span id="cart-count-badge" class="badge hidden">0</span>
+                </button>
+              </a>
+
+              <a href="auth.html">
+                <button
+                  type="button"
+                  class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all hover:bg-accent hover:text-accent-foreground size-9 p-2"
+                  aria-label="Login"
+                >
+                  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </button>
+              </a>
+
+              <button
+                id="mobile-menu-toggle"
+                type="button"
+                class="md:hidden inline-flex items-center justify-center rounded-md text-sm font-medium transition-all hover:bg-accent hover:text-accent-foreground size-9 p-2"
+                aria-label="Menu Mobile"
+              >
+                <svg id="menu-open-icon" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg id="menu-close-icon" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 6l12 12M6 18L18 6"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="mobile-menu" class="md:hidden hidden py-4 border-t border-border">
+            <div class="flex flex-col gap-2">
+              <a href="index.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-secondary">Home</a>
+              <a href="menu.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-secondary">Menu</a>
+              <a href="auth.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-secondary">Login</a>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <main class="flex-1 batik-pattern">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+          <div class="mb-8">
+            <h1 class="font-serif text-3xl md:text-4xl font-bold text-primary mb-2">Eksplorasi Menu</h1>
+            <p class="text-muted-foreground">Temukan cita rasa Nusantara favorit Anda</p>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-8">
+            <aside class="lg:w-64 shrink-0">
+              <div class="bg-card rounded-xl p-6 shadow-sm sticky top-24">
+                <h2 class="font-serif font-semibold text-lg text-foreground mb-4">Kategori</h2>
+                <div class="space-y-2" id="category-list">
+                  <button data-category="all" class="category-button w-full flex items-center justify-between px-4 py-3 rounded-lg text-left transition-colors bg-primary text-primary-foreground">
+                    <div class="flex items-center gap-3">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                      <span class="font-medium">Semua</span>
+                    </div>
+                    <span class="badge bg-primary-foreground text-primary">12</span>
+                  </button>
+                  <button data-category="food" class="category-button w-full flex items-center justify-between px-4 py-3 rounded-lg text-left transition-colors hover:bg-secondary text-foreground">
+                    <div class="flex items-center gap-3">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 .5-4.5 4 1.5 6-5-3.5L6 18.5l1.5-6L3 8.5 9 8z"></path></svg>
+                      <span class="font-medium">Makanan</span>
+                    </div>
+                    <span class="badge">5</span>
+                  </button>
+                  <button data-category="drinks" class="category-button w-full flex items-center justify-between px-4 py-3 rounded-lg text-left transition-colors hover:bg-secondary text-foreground">
+                    <div class="flex items-center gap-3">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2h8l1 6H7z"/><path d="M7 8h10l-.5 6a4 4 0 0 1-8 0L7 8z"/></svg>
+                      <span class="font-medium">Minuman</span>
+                    </div>
+                    <span class="badge">3</span>
+                  </button>
+                  <button data-category="stationery" class="category-button w-full flex items-center justify-between px-4 py-3 rounded-lg text-left transition-colors hover:bg-secondary text-foreground">
+                    <div class="flex items-center gap-3">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v16H6z"/><path d="M9 4v16"/></svg>
+                      <span class="font-medium">Alat Tulis</span>
+                    </div>
+                    <span class="badge">2</span>
+                  </button>
+                  <button data-category="uniforms" class="category-button w-full flex items-center justify-between px-4 py-3 rounded-lg text-left transition-colors hover:bg-secondary text-foreground">
+                    <div class="flex items-center gap-3">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h14v16H5z"/></svg>
+                      <span class="font-medium">Seragam</span>
+                    </div>
+                    <span class="badge">2</span>
+                  </button>
+                </div>
+
+                <div class="mt-6 pt-6 border-t border-border">
+                  <h3 class="font-medium text-foreground mb-2">Rentang Harga</h3>
+                  <p class="text-sm text-muted-foreground">Rp 3.000 - Rp 150.000</p>
+                </div>
+              </div>
+            </aside>
+
+            <div class="flex-1">
+              <div class="mb-6">
+                <div class="relative">
+                  <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="M21 21l-4.35-4.35" />
+                  </svg>
+                  <input
+                    id="search-input"
+                    type="text"
+                    placeholder="Cari menu favorit Anda..."
+                    class="w-full pl-10 bg-card border border-border rounded-xl h-12"
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-6">
+                <p class="text-muted-foreground">
+                  Menampilkan <span id="product-count" class="font-semibold text-foreground">12</span> produk
+                </p>
+                <div class="flex gap-2">
+                  <button type="button" class="sort-button inline-flex items-center rounded-md px-4 py-2 text-sm font-medium border border-border bg-card">Terbaru</button>
+                  <button type="button" class="sort-button inline-flex items-center rounded-md px-4 py-2 text-sm font-medium border border-border bg-card">Terlaris</button>
+                </div>
+              </div>
+
+              <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+
+              <div id="no-results" class="hidden text-center py-12 bg-card rounded-xl">
+                <div class="w-16 h-16 rounded-full bg-secondary flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="M21 21l-4.35-4.35" />
+                  </svg>
+                </div>
+                <h3 class="font-serif font-semibold text-lg text-foreground mb-2">Tidak ada hasil</h3>
+                <p class="text-muted-foreground">Coba kata kunci lain atau ubah filter kategori</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="bg-primary text-primary-foreground">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-2">
+              <div class="flex items-center gap-2 mb-4">
+                <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                  <span class="text-accent-foreground font-serif font-bold text-lg">K</span>
+                </div>
+                <div>
+                  <h3 class="font-serif text-xl font-bold">Kantin Luhur</h3>
+                  <p class="text-xs opacity-80">Warisan Rasa di Sekolah</p>
+                </div>
+              </div>
+              <p class="text-sm opacity-80 max-w-md">
+                Menyajikan cita rasa nusantara dengan sentuhan modern untuk generasi penerus bangsa.
+                Kantin Luhur hadir sebagai warisan kuliner Jawa di lingkungan sekolah.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-serif font-semibold mb-4">Navigasi</h4>
+              <ul class="space-y-2 text-sm opacity-80">
+                <li><a href="index.html" class="hover:opacity-100 transition-opacity">Beranda</a></li>
+                <li><a href="menu.html" class="hover:opacity-100 transition-opacity">Menu</a></li>
+                <li><a href="checkout.html" class="hover:opacity-100 transition-opacity">Keranjang</a></li>
+                <li><a href="dashboard.html" class="hover:opacity-100 transition-opacity">Dashboard</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-serif font-semibold mb-4">Kontak</h4>
+              <ul class="space-y-3 text-sm opacity-80">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 5-9 12-9 12s-9-7-9-12a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Jl. Pendidikan No. 123, Yogyakarta</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92V21a1 1 0 0 1-1.11 1A19.86 19.86 0 0 1 3 5.11 1 1 0 0 1 4 4h4.09a1 1 0 0 1 1 .75 12.05 12.05 0 0 0 .7 2.36 1 1 0 0 1-.24 1L8.16 9.16a16 16 0 0 0 6.68 6.68l1.05-1.05a1 1 0 0 1 1-.24 12.05 12.05 0 0 0 2.36.7 1 1 0 0 1 .75 1V16.92z"></path>
+                  </svg>
+                  <span>(0274) 123-456</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16v16H4z"></path>
+                    <path d="M22 8l-10 6-10-6"></path>
+                  </svg>
+                  <span>info@kantinluhur.id</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm opacity-60">
+            <p>&copy; <span id="current-year"></span> Kantin Luhur. Hak Cipta Dilindungi.</p>
+            <p class="mt-1">Dengan Cinta dari Nusantara 🇮🇩</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
